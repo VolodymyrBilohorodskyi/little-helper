@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+
 import clsx from 'clsx'
-import { Navbar } from '@/components/ui/navbar'
+import { Navbar } from '@/components/navbar'
+import { NotificationComponent } from '@/components/notification-component'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,6 +28,7 @@ export default function RootLayout({
           </header>
           <main className="flex min-h-screen flex-col">{children}</main>
         </div>
+        <NotificationComponent />
       </body>
     </html>
   )

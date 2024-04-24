@@ -1,10 +1,8 @@
 'use client'
 
+import { openModal } from '../modal'
+
 export function AddBlock() {
-  const openModal = () => {
-    document.getElementById('crud-modal')!.classList.remove('hidden')
-    document.getElementById('crud-modal')!.classList.add('flex')
-  }
   return (
     <button
       type="button"
