@@ -1,5 +1,5 @@
 import { NewBoardForm } from '@/components/board/new-board-form'
-import { Main } from '@/components/main'
+import { BoardList } from '@/components/board'
 import { Modal } from '@/components/modal/modal'
 import { Sidebar } from '@/components/sidebar'
 
@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Sidebar />
-      <Main />
+      <BoardList />
       <Modal>
         <NewBoardForm />
       </Modal>

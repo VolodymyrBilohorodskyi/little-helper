@@ -3,16 +3,12 @@
 import { createBoard } from '@/app/actions'
 import { useFormState } from 'react-dom'
 import { closeModal } from '../modal'
-// import { toast } from 'react-toastify'
 import { toast } from 'sonner'
 
 export const NewBoardForm = () => {
   const [boardState, boardAction] = useFormState(createBoard, null)
-  console.log('Test 1')
-
   if (boardState?.success) {
     closeModal()
-    // toast.success('Board created successfully')
     toast.success('Board created successfully')
   }
   return (

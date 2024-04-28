@@ -2,12 +2,13 @@
 
 import { openModal } from '../modal'
 
-export function AddBlock() {
+export function AddBoard() {
   return (
     <button
       type="button"
       onClick={() => openModal()}
-      className="flex h-24 items-center justify-center rounded-lg border-2 border-dashed border-gray-200 p-4 transition-colors hover:bg-gray-700 dark:border-gray-500"
+      className="flex min-h-[82px] items-center justify-center rounded-lg border-2 border-dashed border-gray-200 transition-colors hover:bg-gray-700 dark:border-gray-500"
+      title="Add Board"
     >
       <p className="text-2xl text-gray-400 dark:text-gray-400">
         <svg

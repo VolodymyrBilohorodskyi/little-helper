@@ -39,3 +39,23 @@ export async function createBoard(prevState: any, formData: FormData) {
     }
   }
 }
+
+export async function deleteBoard(boardId: string) {
+  try {
+    const board = await prisma.boards.delete({
+      where: {
+        id: boardId,
+      },
+    })
+    revalidateTag('/')
+    return {
+      board,
+      success: true,
+    }
+  } catch (error) {
+    return {
+      error,
+      success: false,
+    }
+  }
+}
