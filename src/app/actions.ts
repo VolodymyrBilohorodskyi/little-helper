@@ -1,7 +1,7 @@
 'use server'
 import { prisma } from '@/lib/prisma'
 import { Boards } from '@prisma/client'
-import { revalidateTag } from 'next/cache'
+import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 
 const createBoardDto = z.object({
@@ -27,7 +27,8 @@ export async function createBoard(prevState: any, formData: FormData) {
         title,
       },
     })
-    revalidateTag('/')
+
+    revalidatePath('/')
     return {
       board,
       success: true,
@@ -47,7 +48,34 @@ export async function deleteBoard(boardId: string) {
         id: boardId,
       },
     })
-    revalidateTag('/')
+    revalidatePath('/')
+    return {
+      board,
+      success: true,
+    }
+  } catch (error) {
+    return {
+      error,
+      success: false,
+    }
+  }
+}
+
+export async function editBoard(prevState: any, formData: FormData) {
+  try {
+    const { title, boardId } = Object.fromEntries(formData) as {
+      title: string
+      boardId: string
+    }
+    const board = await prisma.boards.update({
+      where: {
+        id: boardId,
+      },
+      data: {
+        title,
+      },
+    })
+    revalidatePath('/')
     return {
       board,
       success: true,

@@ -1,6 +1,7 @@
 'use client'
 
 import { deleteBoard } from '@/app/actions'
+import Image from 'next/image'
 import { toast } from 'sonner'
 
 export const DeleteBoard = ({ boardId }: { boardId: string }) => {
@@ -12,29 +13,17 @@ export const DeleteBoard = ({ boardId }: { boardId: string }) => {
   }
   return (
     <button
+      type="button"
       className="hidden transition-transform hover:scale-150 group-hover:block"
       onClick={removeBoard}
       title="Delete Board"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        x="0px"
-        y="0px"
-        width="24"
-        height="24"
-        viewBox="0 0 48 48"
-      >
-        <path
-          fill="#F44336"
-          d="M21.5 4.5H26.501V43.5H21.5z"
-          transform="rotate(45.001 24 24)"
-        ></path>
-        <path
-          fill="#F44336"
-          d="M21.5 4.5H26.5V43.501H21.5z"
-          transform="rotate(135.008 24 24)"
-        ></path>
-      </svg>
+      <Image
+        src="/assets/icons/delete.svg"
+        alt="Delete Board"
+        width={24}
+        height={24}
+      />
     </button>
   )
 }

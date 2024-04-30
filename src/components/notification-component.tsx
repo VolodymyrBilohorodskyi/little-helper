@@ -7,5 +7,15 @@ import { Toaster } from 'sonner'
 
 export const NotificationComponent = () => {
   // return <ToastContainer position="bottom-right" theme="dark" />
-  return <Toaster position="top-center" richColors visibleToasts={3} expand />
+  return (
+    <Toaster
+      position="bottom-right"
+      richColors
+      visibleToasts={3}
+      expand
+      toastOptions={{
+        style: { fontSize: '18px' },
+      }}
+    />
+  )
 }

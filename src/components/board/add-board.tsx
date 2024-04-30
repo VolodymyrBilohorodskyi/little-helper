@@ -1,32 +1,22 @@
 'use client'
 
-import { openModal } from '../modal'
+import { useState } from 'react'
+import { NewBoardForm } from './new-board-form'
+import { AddBoardButton } from './add-board-button'
 
 export function AddBoard() {
+  const [addBoard, setAddBoard] = useState(false)
   return (
-    <button
-      type="button"
-      onClick={() => openModal()}
-      className="flex min-h-[82px] items-center justify-center rounded-lg border-2 border-dashed border-gray-200 transition-colors hover:bg-gray-700 dark:border-gray-500"
-      title="Add Board"
+    <div
+      className={`relative flex min-h-[82px] items-center justify-center rounded-lg border-2 border-dashed border-gray-200 transition-colors dark:border-gray-500 ${addBoard ? '' : 'hover:bg-gray-700'}`}
     >
-      <p className="text-2xl text-gray-400 dark:text-gray-400">
-        <svg
-          className="h-3.5 w-3.5"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 18 18"
-        >
-          <path
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M9 1v16M1 9h16"
-          />
-        </svg>
-      </p>
-    </button>
+      {addBoard ? (
+        <>
+          <NewBoardForm AddBoard={setAddBoard} />
+        </>
+      ) : (
+        <AddBoardButton AddBoard={setAddBoard} />
+      )}
+    </div>
   )
 }
